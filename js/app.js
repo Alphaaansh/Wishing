@@ -2,16 +2,16 @@
 // ✏️ EDIT YOUR DETAILS HERE
 // ==========================================
 const CONFIG = {
-  receiverName: "Rashi",
-  senderName: "Ajit",
-  age: "18",
+  receiverName: "Vidhi",
+  senderName: "Ansh",
+  age: "22",
 
   reasons: [
     "Every single day with you is filled with genuine laughter 💖",
     "Your positivity is infectious and lifts everyone around you ✨",
     "You're the most trustworthy and patient listener 😊",
     "You turn ordinary moments into unforgettable memories 🌸",
-    "You inspire me every day to work harder and dream bigger🌟"
+    "You motivated me every time I need 🌟"
   ],
 
   // Place your photos in the img/ folder and match filenames here:
@@ -26,11 +26,11 @@ const CONFIG = {
     },
     {
       src: "img/photo3.jpg",
-      caption: "Thank you for being the most genuine friend 💖"
+      caption: "Thank you for being the most genuine person 💖"
     }
   ],
 
-  letter: "Every year I try to find the perfect words to tell you how much your friendship means to me, and every year words fall short. You make my most ordinary days feel worth remembering. Thank you for simply being you. Happy Birthday!"
+  letter: "Every year I try to find the perfect words to tell you how much you means to me, and every year words fall short. Thank you for simply being you. Happy Birthday Mumma!"
 };
 
 // ==========================================
