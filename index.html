@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Happy Birthday!</title>
+  <!-- Google Fonts & Confetti -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  <!-- Note the css/ folder path -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<div id="app">
+  <!-- SCREEN 1: Tree / Intro -->
+  <section class="screen active" id="screen-1">
+    <div class="tree-header">
+      <span class="sub-pill">Special Day</span>
+      <h1 class="main-title">Happy Birthday,<br><span class="receiver-name highlight">Rashi</span></h1>
+      <p class="tagline">and just like that, you're turning <span class="receiver-age">18</span> ✨</p>
+    </div>
+
+    <div class="tree-stage" onclick="nextScreen(2)">
+      <div class="tree-foliage">🌸</div>
+      <div class="tree-trunk"></div>
+      <div class="falling-petals">
+        <span>🌸</span><span>✨</span><span>💖</span><span>🌸</span>
+      </div>
+    </div>
+
+    <button class="btn-primary" onclick="nextScreen(2)">
+      Begin the Surprise ➔
+    </button>
+  </section>
+
+  <!-- SCREEN 2: Cake & Candle -->
+  <section class="screen" id="screen-2">
+    <div class="section-header">
+      <span class="sub-pill">Tradition First</span>
+      <h2>Make a Wish 🎂</h2>
+      <p>Tap the candle to blow out the flame!</p>
+    </div>
+
+    <div class="cake-area" onclick="blowCandle()">
+      <div class="candle-wrapper" id="candleWrapper">
+        <div class="flame" id="flame"></div>
+        <div class="candle-stick"></div>
+      </div>
+      <div class="cake-top"></div>
+      <div class="cake-body">
+        <div class="frosting-drips"></div>
+        <div class="cake-decor">✨ 💖 ✨</div>
+      </div>
+      <div class="cake-plate"></div>
+    </div>
+
+    <p class="hint-text" id="candleStatus">🕯️ Tap candle to blow it out</p>
+
+    <button class="btn-primary" id="btn-cake-next" style="display:none;" onclick="nextScreen(3)">
+      Keep Going ➔
+    </button>
+  </section>
+
+  <!-- SCREEN 3: Pop the Balloons -->
+  <section class="screen" id="screen-3">
+    <div class="section-header">
+      <span class="sub-pill">Reasons Why</span>
+      <h2>Pop the Balloons 🎈</h2>
+      <p>Tap each balloon to reveal why you're amazing</p>
+    </div>
+
+    <div class="balloons-row" id="balloonRow">
+      <div class="balloon-item b-pink" onclick="popBalloon(0, this)"><span>1</span></div>
+      <div class="balloon-item b-purple" onclick="popBalloon(1, this)"><span>2</span></div>
+      <div class="balloon-item b-blue" onclick="popBalloon(2, this)"><span>3</span></div>
+      <div class="balloon-item b-yellow" onclick="popBalloon(3, this)"><span>4</span></div>
+      <div class="balloon-item b-rose" onclick="popBalloon(4, this)"><span>5</span></div>
+    </div>
+
+    <div class="reasons-list" id="reasonsList"></div>
+
+    <button class="btn-primary" id="btn-reasons-next" style="display:none;" onclick="nextScreen(4)">
+      Next Memory ➔
+    </button>
+  </section>
+
+  <!-- SCREEN 4: Polaroid Photo Carousel -->
+  <section class="screen" id="screen-4">
+    <div class="section-header">
+      <span class="sub-pill">Moments</span>
+      <h2>A Walk Down Memory Lane 📸</h2>
+      <p>Swipe or tap arrows to view photos</p>
+    </div>
+
+    <div class="polaroid-wrapper">
+      <div class="polaroid-card">
+        <div class="polaroid-img-box">
+          <!-- Points to img/ folder -->
+          <img id="polaroid-img" src="img/photo1.jpg" alt="Memory" onerror="this.src='https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&auto=format&fit=crop&q=80'" />
+        </div>
+        <div class="polaroid-caption" id="polaroid-caption">Your smile lights up every room 🌸</div>
+      </div>
+    </div>
+
+    <div class="carousel-controls">
+      <button class="nav-btn" onclick="prevSlide()">❮</button>
+      <span class="slide-indicator" id="slideIndicator">1 / 3</span>
+      <button class="nav-btn" onclick="nextSlide()">❯</button>
+    </div>
+
+    <button class="btn-primary" onclick="nextScreen(5)">
+      A Letter for You ➔
+    </button>
+  </section>
+
+  <!-- SCREEN 5: Sealed Letter -->
+  <section class="screen" id="screen-5">
+    <div class="section-header">
+      <span class="sub-pill">From The Heart</span>
+      <h2>A Special Letter 💌</h2>
+      <p>A message penned just for you</p>
+    </div>
+
+    <div class="envelope-box" id="envelopeBox" onclick="openLetter()">
+      <div class="envelope">
+        <div class="wax-seal" id="sealInitial">A</div>
+      </div>
+      <p class="tap-hint">Tap seal to break and read</p>
+    </div>
+
+    <div class="letter-sheet" id="letterSheet" style="display:none;">
+      <div class="letter-inner">
+        <div class="letter-salutation">Dear <span class="receiver-name">Rashi</span>,</div>
+        <div class="letter-body" id="typewriterBody"></div>
+        <div class="letter-signature">With love,<br>— <span class="sender-name">Ajit</span> ✨</div>
+      </div>
+    </div>
+
+    <button class="btn-primary" id="btn-letter-next" style="display:none;" onclick="nextScreen(6)">
+      Finale ➔
+    </button>
+  </section>
+
+  <!-- SCREEN 6: Grand Finale -->
+  <section class="screen screen-center" id="screen-6">
+    <div class="finale-content">
+      <div class="confetti-badge">🎉 BIRTHDAY VIBES 🎉</div>
+      <h1 class="finale-title">HAPPY BIRTHDAY<br><span class="receiver-name highlight">RASHI</span>!</h1>
+      <div class="finale-avatar-box">
+        <img class="finale-avatar" src="img/photo1.jpg" alt="Birthday Person" onerror="this.src='https://images.unsplash.com/photo-1517841905240-472988babdf9?w=500&auto=format&fit=crop&q=80'" />
+      </div>
+      <p class="finale-text">
+        May your year ahead be filled with laughter, big wins, healthy days, and unmatched memories!
+      </p>
+      <p class="finale-from">Crafted with ❤️ by <span class="sender-name">Ajit</span></p>
+
+      <button class="btn-primary" onclick="launchConfettiStorm()">
+        Blast Confetti Again 🎊
+      </button>
+    </div>
+  </section>
+</div>
+
+<!-- Note the js/ folder path -->
+<script src="js/app.js"></script>
+</body>
+</html>
