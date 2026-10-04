@@ -30,7 +30,7 @@ const CONFIG = {
     }
   ],
 
-  letter: "Every year I try to find the perfect words to tell you how much you means to me, and every year words fall short. Thank you for simply being you. Happy Birthday!"
+  letter: "I try to find the perfect words to tell you how much you means to me, and every words fall short. Thank you for simply being you. Happy Birthday!"
 };
 
 // ==========================================
