@@ -2,9 +2,9 @@
 // ✏️ EDIT YOUR DETAILS HERE
 // ==========================================
 const CONFIG = {
-  receiverName: "Vidhi",
+  receiverName: "Kuchu Puchu",
   senderName: "Ansh",
-  age: "22",
+  age: "24",
 
   reasons: [
     "Every single day with you is filled with genuine laughter 💖",
@@ -30,7 +30,7 @@ const CONFIG = {
     }
   ],
 
-  letter: "Every year I try to find the perfect words to tell you how much you means to me, and every year words fall short. Thank you for simply being you. Happy Birthday Mumma!"
+  letter: "Every year I try to find the perfect words to tell you how much you means to me, and every year words fall short. Thank you for simply being you. Happy Birthday!"
 };
 
 // ==========================================
