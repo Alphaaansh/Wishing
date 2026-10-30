@@ -2,7 +2,7 @@
 // ✏️ EDIT YOUR DETAILS HERE
 // ==========================================
 const CONFIG = {
-  receiverName: "Kuchu Puchu",
+  receiverName: "Parneet",
   senderName: "Ansh",
   age: "24",
 
